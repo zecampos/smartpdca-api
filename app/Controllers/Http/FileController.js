@@ -46,7 +46,7 @@ class FileController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {
+  async store({ request, response, params }) {
     try {
       await request.multipart
         .file("file", {}, async file => {
@@ -85,7 +85,7 @@ class FileController {
         url: currentUrl,
         type: currentType,
         subtype: currentSubtype,
-        acoe_id: 1
+        acoe_id: params.acoes_id
       });
       return fileCreated;
     } catch (err) {

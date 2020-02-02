@@ -19,9 +19,9 @@ const Route = use("Route");
 Route.get("/", () => {
   return { greeting: "Hello world in JSON" };
 });
-Route.post("/files", "FileController.store");
 
 Route.group(() => {
   Route.resource("acoes", "AcoeController").apiOnly();
   Route.resource("matriz", "MatrizeController").apiOnly();
+  Route.resource("acoes.files", "FileController");
 });
