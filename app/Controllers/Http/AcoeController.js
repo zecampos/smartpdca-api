@@ -30,10 +30,11 @@ class AcoeController {
   async store({ request, response }) {
     try {
       const data = request.all();
+      console.log("data", data);
       const acoes = await Acoes.create(data);
       return response.status(200).send(acoes);
     } catch (err) {
-      return response.status(err.status).send(err.message);
+      return response.status(500).send(err);
     }
   }
 
